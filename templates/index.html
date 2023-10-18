@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row">
+        <!-- Repeat the following card structure for each book -->
+        {% for book in books %}
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+            <div class="card">
+                <img src="{{book.img.url}}" class="card-img-top" alt="Book Cover">
+                <div class="card-body">
+                    <h5 class="card-title">{{book.title}}</h5>
+                    <p class="card-text">Author: John Doe</p>
+                    <p class="card-text">Price: Free</p>
+                    <a href="{% url 'detail' %}?title={{book.title}}" class="btn btn-primary">Download Now</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+        <!-- End of card structure -->
+        <!-- Repeat for more books... -->
+    </div>
+</div>
+{% endblock %}
